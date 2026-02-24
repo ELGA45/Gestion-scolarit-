@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FiliereController;
 use App\Http\Controllers\NiveauController;
+use App\Http\Controllers\TarifController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function () {
@@ -25,3 +26,5 @@ Route::get('niveaux/{niveau}/sous-niveaux/create', [NiveauController::class, 'cr
 
 Route::get('sous-niveaux/{sousNiveau}/edit',[NiveauController::class, 'editSousNiveau'])
     ->name('sousNiveaux.edit');
+
+Route::resource('tarifs', TarifController::class);

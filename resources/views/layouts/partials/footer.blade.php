@@ -1,3 +1,4 @@
-<footer class="bg-white text-center py-4 border-t text-sm text-gray-500">
-    © {{ date('Y') }} - Gestion Scolarité | Développé par ELGA
+<footer class="bg-white border-t text-center py-4 text-sm text-gray-500">
+    © {{ date('Y') }} — Gestion Scolarité  
+    <span class="font-semibold text-gray-700">Développé par ELGA</span>
 </footer>

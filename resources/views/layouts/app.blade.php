@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name', 'Gestion Scolarité') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 font-sans antialiased">
 
     <div class="flex min-h-screen">
 
@@ -19,10 +20,11 @@
             {{-- Header --}}
             @include('layouts.partials.header')
 
-            {{-- Contenu principal --}}
-            <main class="flex-1 p-6">
-                {{ $slot ?? '' }}
-                @yield('content')
+            {{-- Contenu --}}
+            <main class="flex-1 p-8">
+                <div class="max-w-7xl mx-auto">
+                    @yield('content')
+                </div>
             </main>
 
             {{-- Footer --}}
@@ -32,7 +34,6 @@
     </div>
 
     <script src="//unpkg.com/alpinejs" defer></script>
-    <script src="https://unpkg.com/heroicons@2.0.18/dist/heroicons.js"></script>
 </body>
 
 </html>
