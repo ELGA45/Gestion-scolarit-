@@ -4,23 +4,45 @@
 
 @section('content')
 
-<div class="bg-white shadow rounded p-6 max-w-xl">
+    <div class="max-w-3xl mx-auto">
 
-    <h2 class="text-xl font-semibold mb-4">Modifier Filière</h2>
+        <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-8">
 
-    <form action="{{ route('filieres.update', $filiere) }}" method="POST">
-        @csrf
-        @method('PUT')
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                Modifier Filière
+            </h2>
 
-        @include('filieres.partials.form')
+            @if ($errors->any())
+                <div class="bg-red-50 border border-red-200 text-red-600 p-4 rounded-lg mb-6">
+                    <ul class="list-disc pl-5 space-y-1 text-sm">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
-        <div class="mt-4">
-            <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-                Mettre à jour
-            </button>
+            <form action="{{ route('filieres.update', $filiere) }}" method="POST" class="space-y-6">
+                @csrf
+                @method('PUT')
+
+                @include('filieres.partials.form')
+
+                <div class="flex justify-end gap-3 pt-4">
+                    <a href="{{ route('filieres.index') }}"
+                        class="px-5 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-lg transition">
+                        Annuler
+                    </a>
+
+                    <button type="submit"
+                        class="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg shadow transition">
+                        Mettre à jour
+                    </button>
+                </div>
+            </form>
+
         </div>
-    </form>
 
-</div>
+    </div>
 
 @endsection

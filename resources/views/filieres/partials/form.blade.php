@@ -1,23 +1,47 @@
-<div class="mb-4">
-    <label class="block text-gray-700 mb-1">Code</label>
-    <input type="text"
-           name="code"
-           value="{{ old('code', $filiere->code ?? '') }}"
-           class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-400">
+<div class="space-y-6">
 
-    @error('code')
-        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-    @enderror
-</div>
+    {{-- Code --}}
+    <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-2">
+            Code de la Filière
+        </label>
 
-<div class="mb-4">
-    <label class="block text-gray-700 mb-1">Nom</label>
-    <input type="text"
-           name="nom"
-           value="{{ old('nom', $filiere->nom ?? '') }}"
-           class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-400">
+        <input type="text"
+               name="code"
+               value="{{ old('code', $filiere->code ?? '') }}"
+               placeholder="Ex: INFO"
+               class="w-full rounded-lg border border-gray-300 px-4 py-2
+                      focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                      transition duration-200 outline-none
+                      @error('code') border-red-500 focus:ring-red-500 focus:border-red-500 @enderror">
 
-    @error('nom')
-        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-    @enderror
+        @error('code')
+            <p class="text-red-500 text-sm mt-2">
+                {{ $message }}
+            </p>
+        @enderror
+    </div>
+
+    {{-- Nom --}}
+    <div>
+        <label class="block text-sm font-semibold text-gray-700 mb-2">
+            Nom de la Filière
+        </label>
+
+        <input type="text"
+               name="nom"
+               value="{{ old('nom', $filiere->nom ?? '') }}"
+               placeholder="Ex: Informatique"
+               class="w-full rounded-lg border border-gray-300 px-4 py-2
+                      focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+                      transition duration-200 outline-none
+                      @error('nom') border-red-500 focus:ring-red-500 focus:border-red-500 @enderror">
+
+        @error('nom')
+            <p class="text-red-500 text-sm mt-2">
+                {{ $message }}
+            </p>
+        @enderror
+    </div>
+
 </div>
